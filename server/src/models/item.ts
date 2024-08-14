@@ -3,7 +3,6 @@ import { ItemType } from "../types/item";
 
 const itemSchema = new Schema<ItemType>({
   name: { type: String, required: true },
-  description: { type: String, required: true },
   price: { type: Number, required: true },
 });
 
