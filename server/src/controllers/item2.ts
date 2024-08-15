@@ -20,9 +20,9 @@ const createItem = async (req: Request, res: Response) => {
 
 const getItems = async (req: Request, res: Response) => {
   try {
-    const page = parseInt(req.query.page as string) || 1;
+    const page = parseInt(req.query.page as string);
     // console.log("page:", page);
-    const limit = parseInt(req.query.limit as string) || 10;
+    const limit = parseInt(req.query.limit as string);
     // console.log("limit:", limit);
     const skip = (page - 1) * limit;
     // console.log("skip:", skip);
