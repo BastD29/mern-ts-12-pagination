@@ -1,6 +1,7 @@
 // pagination
 
-const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+const SET_PAGE = "SET_PAGE";
+const SET_TOTAL_ITEMS = "SET_TOTAL_ITEMS";
 const SET_TOTAL_PAGES = "SET_TOTAL_PAGES";
 
 // items
@@ -16,7 +17,8 @@ const CLEAR_FILTER = "CLEAR_FILTER";
 
 export {
   // pagination
-  SET_CURRENT_PAGE,
+  SET_PAGE,
+  SET_TOTAL_ITEMS,
   SET_TOTAL_PAGES,
   // items
   FETCH_ITEMS_REQUEST,
