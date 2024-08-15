@@ -1,5 +1,5 @@
 import express from "express";
-import { createItem, getItems, seedDB } from "../controllers/item";
+import { createItem, getItems, seedDB } from "../controllers/item2";
 
 const router = express.Router();
 
