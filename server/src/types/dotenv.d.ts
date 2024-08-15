@@ -3,6 +3,6 @@ declare namespace NodeJS {
     NODE_ENV: "development" | "production" | "test" | "local" | "staging";
     PORT: string;
     MONGO_URI: string;
-    ALLOWED_ORIGINS: string;
+    ALLOWED_ORIGIN: string;
   }
 }
