@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { usePaginationContext } from "../../hooks/usePaginationContext";
+import { SET_PAGE } from "../../constants/actions";
 import style from "./Pagination.module.scss";
 
 const Pagination: FC = () => {
@@ -7,7 +8,11 @@ const Pagination: FC = () => {
     dispatch,
     state: { pagination },
   } = usePaginationContext();
-  const { page, totalItems, totalPages } = pagination;
+  const { page, totalPages } = pagination;
+
+  const handlePageChange = async (page: number) => {
+    dispatch({ type: SET_PAGE, payload: page });
+  };
 
   const renderPageNumbers = () => {
     const pages = [];
@@ -15,7 +20,7 @@ const Pagination: FC = () => {
       pages.push(
         <button
           key={i}
-          // onClick={() => handlePageChange(i)}
+          onClick={() => handlePageChange(i)}
           disabled={i === page}
         >
           {i}
@@ -27,16 +32,13 @@ const Pagination: FC = () => {
 
   return (
     <div className={style["pagination"]}>
-      <button
-        disabled={page <= 1}
-        // onClick={() => handlePageChange(paginationState.page - 1)}
-      >
+      <button disabled={page <= 1} onClick={() => handlePageChange(page - 1)}>
         Previous
       </button>
       {renderPageNumbers()}
       <button
         disabled={page >= totalPages}
-        // onClick={() => handlePageChange(paginationState.page + 1)}
+        onClick={() => handlePageChange(page + 1)}
       >
         Next
       </button>
