@@ -1,8 +1,33 @@
-import { FC } from "react";
+import { ChangeEvent, FC } from "react";
 import style from "./Filter.module.scss";
+import { SET_FILTER } from "../../constants/actions";
+import { useFilterContext } from "../../hooks/useFilterContext";
 
 const Filter: FC = () => {
-  const handleFilter = () => {};
+  const {
+    dispatch,
+    state: { filters },
+  } = useFilterContext();
+
+  const handleFilter = (
+    event: ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value, type } = event.target;
+
+    if (type === "checkbox") {
+      const target = event.target as HTMLInputElement;
+
+      dispatch({
+        type: SET_FILTER,
+        payload: { name: name, value: target.checked.toString() },
+      });
+    } else {
+      dispatch({
+        type: SET_FILTER,
+        payload: { name: name, value },
+      });
+    }
+  };
 
   return (
     <div className={style["filter"]}>
@@ -13,7 +38,7 @@ const Filter: FC = () => {
           name="name"
           placeholder="Name"
           onChange={handleFilter}
-          //   value={filters.name || ""}
+          value={filters.name || ""}
         />
       </div>
       <div className={style["filter__filter"]}>
@@ -22,7 +47,7 @@ const Filter: FC = () => {
           type="checkbox"
           name="inStock"
           onChange={handleFilter}
-          //   checked={filters.inStock === "true"}
+          checked={filters.inStock === "true"}
         />
       </div>
       <div className={style["filter__filter"]}>
@@ -33,16 +58,16 @@ const Filter: FC = () => {
           min="0"
           max="1200"
           onChange={handleFilter}
-          //   value={filters.price || ""}
+          value={filters.price || ""}
         />
-        {/* <span>{filters.price || ""}</span> */}
+        <span>{filters.price || ""}</span>
       </div>
       <div className={style["filter__filter"]}>
         <label htmlFor="category">Category</label>
         <select
           name="category"
           onChange={handleFilter}
-          //   value={filters.category || ""}
+          value={filters.category || ""}
         >
           <option value="">All Categories</option>
           <option value="Electronics">Electronics</option>
