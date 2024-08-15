@@ -1,7 +1,7 @@
 import { FC } from "react";
 import ItemsList from "../../components/ItemsList/ItemsList";
 import Pagination from "../../components/Pagination/Pagination";
-import Filter from "../../components/Filter/Filter";
+import Filter from "../../components/Filter/Filter2";
 import style from "./Store.module.scss";
 
 const Store: FC = () => {
