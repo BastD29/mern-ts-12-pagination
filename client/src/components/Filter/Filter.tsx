@@ -1,7 +1,7 @@
 import { ChangeEvent, FC } from "react";
-import style from "./Filter.module.scss";
 import { SET_FILTER } from "../../constants/actions";
 import { useFilterContext } from "../../hooks/useFilterContext";
+import style from "./Filter.module.scss";
 
 const Filter: FC = () => {
   const {
