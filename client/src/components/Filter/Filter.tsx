@@ -1,5 +1,5 @@
 import { ChangeEvent, FC } from "react";
-import { SET_FILTER } from "../../constants/actions";
+import { CLEAR_FILTER, SET_FILTER } from "../../constants/actions";
 import { useFilterContext } from "../../hooks/useFilterContext";
 import style from "./Filter.module.scss";
 
@@ -27,6 +27,10 @@ const Filter: FC = () => {
         payload: { name: name, value },
       });
     }
+  };
+
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
   };
 
   return (
@@ -77,6 +81,9 @@ const Filter: FC = () => {
           <option value="Kitchenware">Kitchenware</option>
         </select>
       </div>
+      <button className={style["clear-filter-btn"]} onClick={clearFilter}>
+        Clear all filters
+      </button>
     </div>
   );
 };
