@@ -2,13 +2,14 @@ import { FC } from "react";
 import { useItemContext } from "../../hooks/useItemContext";
 import style from "./ItemsList.module.scss";
 import ItemCard from "../ItemCard/ItemCard";
+import SkeletonLoader from "../skeletons/SkeletonLoader/SkeletonLoader";
 
 const ItemsList: FC = () => {
   const { state } = useItemContext();
   const { error, items, loading } = state;
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <SkeletonLoader />;
   }
 
   if (error) {

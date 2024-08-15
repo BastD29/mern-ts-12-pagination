@@ -1,7 +1,7 @@
 import { FC, Suspense } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { routes } from "../../routes";
-import LoaderLayout from "../LoaderLayout/LoaderLayout";
+import LoaderLayout from "../layouts/LoaderLayout/LoaderLayout";
 
 const App: FC = () => {
   const router = createBrowserRouter(routes);

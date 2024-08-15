@@ -1,5 +1,5 @@
 import { FC, Suspense } from "react";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../../Navbar/Navbar";
 import { Outlet } from "react-router-dom";
 import style from "./Layout.module.scss";
 import LoaderLayout from "../LoaderLayout/LoaderLayout";
