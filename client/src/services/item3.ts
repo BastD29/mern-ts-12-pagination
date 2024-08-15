@@ -9,7 +9,7 @@ type GetItemResponseType = {
   totalPages: number;
   totalItems: number;
 };
-
+//
 type GetItemsParamsType = {
   page?: number;
   limit?: number;
