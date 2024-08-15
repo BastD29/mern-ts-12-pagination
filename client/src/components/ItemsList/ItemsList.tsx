@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { useItemContext } from "../../hooks/useItemContext";
 import style from "./ItemsList.module.scss";
+import ItemCard from "../ItemCard/ItemCard";
 
 const ItemsList: FC = () => {
   const { state } = useItemContext();
@@ -25,7 +26,7 @@ const ItemsList: FC = () => {
   return (
     <div className={style["items-list"]}>
       {items.map((item) => (
-        <div key={item._id}>{item.name}</div>
+        <ItemCard key={item._id} item={item} />
       ))}
     </div>
   );
