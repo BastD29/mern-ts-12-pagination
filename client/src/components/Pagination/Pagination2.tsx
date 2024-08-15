@@ -1,15 +1,17 @@
 import { FC } from "react";
 import { usePaginationContext } from "../../hooks/usePaginationContext";
 import { SET_PAGE } from "../../constants/actions";
-import style from "./Pagination.module.scss";
 import { useSearchParams } from "react-router-dom";
+import style from "./Pagination.module.scss";
 
 const Pagination: FC = () => {
   const {
     dispatch,
     state: { pagination },
   } = usePaginationContext();
+
   const { page, totalPages } = pagination;
+
   const [searchParams, setSearchParams] = useSearchParams();
 
   const handlePageChange = async (page: number) => {
